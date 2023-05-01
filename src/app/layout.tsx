@@ -1,7 +1,13 @@
+import Link from 'next/link'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Inter, Noto_Sans_KR } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const notoSansKr = Noto_Sans_KR({
+  subsets: ['latin'],
+  weight: ['100', '400', '700', '900']
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -13,9 +19,27 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  const menus = ['Home', 'About', 'Posts', 'Contact']
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={notoSansKr.className}>
+        <header className='w-full h-12 flex justify-center bg-stone-900 text-slate-50'>
+          <div className='max-w-screen-2xl w-full flex justify-between items-center'>
+            <Link href="/" className='p-2.5 text-2xl font-bold ml-2'>HSJ&apos;s Blog</Link>
+            <nav className='text-base'>
+              {
+                menus.map( (menu,i) => {
+                  return <Link href={`/${menu==="Home" ? "" : menu.toLowerCase()}`} className='p-2.5 font-semibold last:mr-2' 
+                  key={i}>{menu}</Link>
+                })
+              }
+            </nav>
+          </div>
+        </header>
+        {children}
+        </body>
     </html>
   )
 }

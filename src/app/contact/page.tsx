@@ -7,10 +7,10 @@ import Profile from '@/components/Profile'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Contact() {
   return (
       <main>
-        <Profile/>
+        contact 페이지
       </main>
   )
 }
