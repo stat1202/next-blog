@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={notoSansKr.className}>
         <header className='w-full h-12 flex justify-center bg-stone-900 text-slate-50'>
           <div className='max-w-screen-2xl w-full flex justify-between items-center'>
-            <Link href="/" className='p-2.5 text-2xl font-bold ml-2'>HSJ's Blog</Link>
+            <Link href="/" className='p-2.5 text-2xl font-bold ml-2'>HSJ&apos;s Blog</Link>
             <nav className='text-base'>
               {
                 menus.map( (menu,i) => {
