@@ -31,7 +31,8 @@ export default function RootLayout({
         <ul className='text-sm'>
           {
             menus.map( menu => {
-              return <li className='px-2 py-1'>{menu}</li>
+              return <li className='px-2 py-1'
+              key={menu.toLowerCase()}>{menu}</li>
             })
           }
         </ul>

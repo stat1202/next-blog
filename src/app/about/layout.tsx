@@ -22,15 +22,6 @@ export default function RootLayout({
   const menus = ['All Posts', 'My Story', 'Frontend', 'JavaScript']
 
   return (
-    <aside className='w-32 flex flex-col self-end'>
-      <h2 className='text-lg' >Category</h2>
-      <ul className='text-sm'>
-        {
-          menus.map( menu => {
-            return <li>{menu}</li>
-          })
-        }
-      </ul>
-    </aside>
+    <></>
   )
 }
