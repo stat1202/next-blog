@@ -30,9 +30,9 @@ export default function RootLayout({
             <Link href="/" className='p-2.5 text-2xl font-bold ml-2'>HSJ's Blog</Link>
             <nav className='text-base'>
               {
-                menus.map(menu => {
+                menus.map( (menu,i) => {
                   return <Link href={`/${menu==="Home" ? "" : menu.toLowerCase()}`} className='p-2.5 font-semibold last:mr-2' 
-                  key={menu.toLowerCase()}>{menu}</Link>
+                  key={i}>{menu}</Link>
                 })
               }
             </nav>
