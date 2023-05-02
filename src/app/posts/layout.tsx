@@ -19,7 +19,7 @@ export default function PostsLayout({
 
   return (
     <main className='flex'>
-      <div className='flex basis-0 grow'>
+      <div className='flex basis-0 grow justify-center'>
         {children}
       </div>
     </main>
