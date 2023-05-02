@@ -1,16 +1,12 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { getAllPosts } from '@/utils/posts'
+import FilterablePosts from '@/components/FilterablePost'
 
-import profileImg from "../../public/images/profile.jpg"
 
-import Profile from '@/components/Profile'
+export default async function PostsPage() {
+  const posts = await getAllPosts()
+  const categories = [... new Set(posts.map(post => post.category))]
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Posts() {
   return (
-      <main>        
-        Posts 페이지
-      </main>
+    <FilterablePosts posts={posts} categories={categories}/>
   )
 }

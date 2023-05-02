@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import './globals.css'
-import { Inter, Noto_Sans_KR } from 'next/font/google'
+import { Open_Sans } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+import Header from '@/components/Header'
+import Footer from '@/components/Footers'
 
-const notoSansKr = Noto_Sans_KR({
-  subsets: ['latin'],
-  weight: ['100', '400', '700', '900']
-})
+const sans = Open_Sans({ subsets: ['latin'] })
+
+
 
 export const metadata = {
   title: 'Create Next App',
@@ -23,22 +23,13 @@ export default function RootLayout({
   const menus = ['Home', 'About', 'Posts', 'Contact']
 
   return (
-    <html lang="en">
-      <body className={notoSansKr.className}>
-        <header className='w-full h-12 flex justify-center bg-stone-900 text-slate-50'>
-          <div className='max-w-screen-2xl w-full flex justify-between items-center'>
-            <Link href="/" className='p-2.5 text-2xl font-bold ml-2'>HSJ&apos;s Blog</Link>
-            <nav className='text-base'>
-              {
-                menus.map( (menu,i) => {
-                  return <Link href={`/${menu==="Home" ? "" : menu.toLowerCase()}`} className='p-2.5 font-semibold last:mr-2' 
-                  key={i}>{menu}</Link>
-                })
-              }
-            </nav>
-          </div>
-        </header>
-        {children}
+    <html lang="en" className={sans.className}>
+      <body className='flex flex-col w-full mx-auto'>
+        <Header/>
+        <main className='grow max-w-screen-2xl w-full mx-auto'>
+          {children}
+        </main>
+        <Footer/>
         </body>
     </html>
   )

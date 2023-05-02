@@ -1,16 +1,15 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-import profileImg from "../../public/images/profile.jpg"
-
 import Profile from '@/components/Profile'
+import FeaturedPosts from '@/components/FeaturedPosts'
+import CarouselPosts from '@/components/CarouselPosts'
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+export default function HomePage() {
   return (
-      <main>
+      <section className='p-4'>
         <Profile/>
-      </main>
+        {/* @ts-expect-error Server Component */}
+        <FeaturedPosts/>
+        {/* @ts-expect-error Server Component */}
+        <CarouselPosts/>
+      </section>
   )
 }
