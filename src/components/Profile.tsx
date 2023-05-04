@@ -4,13 +4,17 @@ import Link from 'next/link'
 
 export default function Profile() {
   return (
-    <div className='flex flex-col items-center pt-4'>
-      <Image  src={profileImg} alt="profile" 
-      className='w-80 h-80 max-sm:w-60 max-sm:h-60 rounded-full'></Image>
-      <h2 className='pt-2.5 font-bold text-2xl max-sm:text-lg'>Hi, I&apos;m SeungJae Han</h2>
-      <p className='pt-2.5 font-semibold max-sm:text-base'>Frontend engineer</p>
-      <Link href="/contact"
-      className='mt-2.5 px-2 py-1 bg-stone-900 rounded font-semibold text-white'>Contact Me</Link>
-    </div>
+    <section className='text-center mt-2'>
+        <Image  src={profileImg} alt="profile" 
+        className='w-64 h-64 rounded-full mx-auto'></Image>
+        <h2 className='text-3xl font-bold mt-2'>Hi, I&apos;m SeungJae Han</h2>
+        <h3 className='text-xl font-semibold'>Frontend engineer</h3>
+        <Link href="/contact">
+          <button className='mt-2 px-4 py-1 bg-stone-900 rounded font-bold text-white'>
+            Contact Me
+          </button>
+        </Link>
+    </section>
+    
   )
 }
