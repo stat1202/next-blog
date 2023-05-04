@@ -1,3 +1,4 @@
+import AdjacentPostCard from "@/components/AdjacentPostCard";
 import PostContent from "@/components/PostContent";
 import { getPostData } from "@/utils/posts";
 import Image from "next/image";
@@ -6,6 +7,20 @@ import Image from "next/image";
 type Props={
   params:{
     slug: string;
+  }
+}
+
+export const metadata = {
+  title: 'All Posts',
+  description: '블로그 글'
+}
+
+export async function generateMetadata( {params: {slug}} : Props) {
+  const {title, description} = await getPostData(slug)
+
+  return{
+    title,
+    description
   }
 }
 
@@ -20,9 +35,9 @@ export default async function PostPage({params: {slug}}: Props) {
       alt={title} width={760} height={420}
       className="w-full h-1/5 max-h-[500px]"/>
       <PostContent post={post}/>
-      <section>
-        {prev &&<p>{prev.title}</p>}
-        {next &&<p>{next.title}</p>}
+      <section className="flex shadow-md">
+        {prev && <AdjacentPostCard post={prev} type={'prev'}/>}
+        {next && <AdjacentPostCard post={next} type={'next'}/>}
       </section>
     </article>
 
