@@ -10,11 +10,6 @@ type Props={
   }
 }
 
-export const metadata = {
-  title: 'All Posts',
-  description: '블로그 글'
-}
-
 export async function generateMetadata( {params: {slug}} : Props) {
   const {title, description} = await getPostData(slug)
 
